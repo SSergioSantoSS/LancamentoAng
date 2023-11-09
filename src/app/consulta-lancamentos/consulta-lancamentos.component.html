@@ -1,0 +1,48 @@
+<h4>Consulta de Lançamentos</h4>
+<p>
+    Listagem de lançamentos cadastrados
+</p>
+<hr />
+
+<div *ngIf="mensagem" class="alert alert-secondary">
+    <strong>{{mensagem}}</strong>
+    </div>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Descrição</th>
+            <th >Data</th>
+            <th width="10">Status</th>
+            <th >Valor</th>            
+            <th width="20">Avulso</th>
+            <th width="100">Operação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let l of lancamentos">
+            <td>{{l.descricao}}</td>
+            <td>{{l.data}}</td>
+            <td>{{l.status}}</td>
+            <td>{{l.valor}}</td>
+            <td>{{l.avulso}}</td>
+            
+            
+            <td>
+                
+                &nbsp;
+                <button class="btn btn-outline-danger btn-sm" (click)="cancelarLancamento(l.idLancamento)">
+                    
+                    Cancelar
+                </button>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="6">
+                Quantidade de lançamentos: {{lancamentos.length}}
+            </td>
+        </tr>
+    </tfoot>
+</table>

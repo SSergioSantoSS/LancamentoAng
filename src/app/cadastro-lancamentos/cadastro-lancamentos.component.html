@@ -1,0 +1,38 @@
+<h4>Cadastro de Lançamento</h4>
+<p>
+    Preencha o formulário para cadastrar um lançamento.
+</p>
+<hr />
+
+<div *ngIf="mensagem" class="alert alert-secondary">
+    <strong>{{mensagem}}</strong>
+</div>
+
+<form #formCadastro="ngForm" (submit)="cadastrarLancamento(formCadastro)">
+    <label>Descrição do Lançamento:</label>
+    <input type="text" class="form-control" name="descricao" ngModel />
+    <div class="text-danger">
+        {{validacoes.Descricao}}
+    </div>
+    <br />
+    <label>Status:</label>
+    <input type="text" class="form-control" name="status" ngModel />
+    <div class="text-danger">
+        {{validacoes.Status}}
+    </div>
+    <br />
+    <label>Data:</label>
+    <input type="date" class="form-control" name="data" ngModel />
+    <div class="text-danger">
+        {{validacoes.Data}}
+    </div>
+    <br />
+    <label>Valor:</label>
+    <input type="text" class="form-control" name="valor" ngModel />
+    <div class="text-danger">
+        {{validacoes.Valor}}
+    </div>
+    <br />
+
+    <input type="submit" value="Cadastrar Lançamento" class="btn btn-success" />
+</form>
